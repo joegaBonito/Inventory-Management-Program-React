@@ -2,14 +2,8 @@ import React, {Component} from 'react';
 import ItemAccessory from './ItemAccessory';
 
 class ItemAccessoryList extends Component {
-  itemAccessories() {
-    return this.props.itemAccessories.map((itemAccessory) => {
-      return (
-        <ItemAccessory key={itemAccessory.itemAccessoryId} itemAccessory = {itemAccessory}/>
-      );
-    });
-  }
   render() {
+    const itemAccessories = this.props.itemAccessories.map((itemAccessory) => <ItemAccessory key={itemAccessory.itemAccessoryId} itemAccessory = {itemAccessory}/>);
     return(
       <table>
         <tr>
@@ -23,7 +17,7 @@ class ItemAccessoryList extends Component {
           <th>Width</th>
           <th>Weight</th>
         </tr>
-        {this.itemAccessories()}
+        {itemAccessories}
       </table>
     );
   }
